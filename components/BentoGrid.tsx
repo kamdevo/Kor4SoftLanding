@@ -1,3 +1,7 @@
+"use client";
+
+import { InView } from "./InView";
+
 export default function BentoGrid() {
   return (
     <section id="servicios" className="container mx-auto px-4 py-16 sm:py-20 max-w-7xl">
@@ -16,7 +20,14 @@ export default function BentoGrid() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mb-12">
         
         {/* Desarrollo Web - Card destacada */}
-        <div className="bg-gradient-to-br from-slate-50 to-white rounded-2xl p-6 sm:p-8 shadow-lg border border-slate-200">
+        <InView
+          variants={{
+            hidden: { opacity: 0, y: 30, scale: 0.95 },
+            visible: { opacity: 1, y: 0, scale: 1 }
+          }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
+        <div className="bg-gradient-to-br from-slate-50 to-white rounded-2xl p-6 sm:p-8 shadow-lg border border-slate-200 hover:shadow-xl hover:border-slate-300 transition-all duration-300">
           <div>
             {/* Icono y badge */}
             <div className="flex items-start justify-between mb-4">
@@ -70,9 +81,17 @@ export default function BentoGrid() {
             </div>
           </div>
         </div>
+        </InView>
 
         {/* Aplicaciones Móviles - Card destacada */}
-        <div className="bg-gradient-to-br from-slate-50 to-white rounded-2xl p-6 sm:p-8 shadow-lg border border-slate-200">
+        <InView
+          variants={{
+            hidden: { opacity: 0, y: 30, scale: 0.95 },
+            visible: { opacity: 1, y: 0, scale: 1 }
+          }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+        <div className="bg-gradient-to-br from-slate-50 to-white rounded-2xl p-6 sm:p-8 shadow-lg border border-slate-200 hover:shadow-xl hover:border-slate-300 transition-all duration-300">
           <div>
             {/* Icono */}
             <div className="flex items-start justify-between mb-4">
@@ -127,13 +146,21 @@ export default function BentoGrid() {
             </div>
           </div>
         </div>
+        </InView>
       </div>
 
       {/* Servicios Secundarios - Grid compacto */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-12">
         
         {/* Automatización */}
-        <div className="bg-white rounded-xl p-5 shadow-md border border-slate-200">
+        <InView
+          variants={{
+            hidden: { opacity: 0, y: 20 },
+            visible: { opacity: 1, y: 0 }
+          }}
+          transition={{ duration: 0.4, delay: 0.3 }}
+        >
+        <div className="bg-white rounded-xl p-5 shadow-md border border-slate-200 hover:shadow-lg hover:border-slate-300 transition-all duration-300">
           <div className="w-12 h-12 bg-gradient-to-br from-slate-700 to-slate-800 rounded-lg flex items-center justify-center mb-4 shadow-md">
             <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -144,9 +171,17 @@ export default function BentoGrid() {
             Optimiza procesos y ahorra tiempo con soluciones automatizadas.
           </p>
         </div>
+        </InView>
 
         {/* Consultoría */}
-        <div className="bg-white rounded-xl p-5 shadow-md border border-slate-200">
+        <InView
+          variants={{
+            hidden: { opacity: 0, y: 20 },
+            visible: { opacity: 1, y: 0 }
+          }}
+          transition={{ duration: 0.4, delay: 0.4 }}
+        >
+        <div className="bg-white rounded-xl p-5 shadow-md border border-slate-200 hover:shadow-lg hover:border-slate-300 transition-all duration-300">
           <div className="w-12 h-12 bg-gradient-to-br from-slate-700 to-slate-800 rounded-lg flex items-center justify-center mb-4 shadow-md">
             <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -157,9 +192,18 @@ export default function BentoGrid() {
             Asesoría técnica especializada para tu proyecto.
           </p>
         </div>
+        </InView>
 
         {/* Tecnologías - Span 2 columns */}
-        <div className="sm:col-span-2 bg-gradient-to-br from-slate-700 to-slate-800 rounded-xl p-6 shadow-lg text-white">
+        <InView
+          variants={{
+            hidden: { opacity: 0, y: 20 },
+            visible: { opacity: 1, y: 0 }
+          }}
+          transition={{ duration: 0.4, delay: 0.5 }}
+          className="sm:col-span-2"
+        >
+        <div className="bg-gradient-to-br from-slate-700 to-slate-800 rounded-xl p-6 shadow-lg text-white hover:shadow-2xl transition-shadow duration-300">
           <h3 className="text-xl font-bold mb-4">Tecnologías que Dominamos</h3>
           <div className="grid grid-cols-2 gap-3">
             <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-lg p-3">
@@ -188,6 +232,7 @@ export default function BentoGrid() {
             </div>
           </div>
         </div>
+        </InView>
       </div>
 
       {/* Proceso de Trabajo - Rediseñado */}

@@ -1,3 +1,7 @@
+"use client";
+
+import { InView } from "./InView";
+
 export default function SobreNosotros() {
   return (
     <section id="sobre-nosotros" className="container mx-auto px-4 py-12 sm:py-16 lg:py-20 max-w-7xl">
@@ -16,7 +20,15 @@ export default function SobreNosotros() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
         
         {/* Caja de Texto - Prioridad en mobile */}
-        <div className="space-y-5 sm:space-y-6 order-1 lg:order-1">
+        <InView
+          variants={{
+            hidden: { opacity: 0, x: -30 },
+            visible: { opacity: 1, x: 0 }
+          }}
+          transition={{ duration: 0.6 }}
+          className="space-y-5 sm:space-y-6 order-1 lg:order-1"
+        >
+        <div>
           <h3 className="text-2xl sm:text-3xl font-bold text-slate-800">
             Tu socio tecnológico de confianza
           </h3>
@@ -49,9 +61,18 @@ export default function SobreNosotros() {
             </div>
           </div>
         </div>
+        </InView>
 
         {/* Caja de Características - Orden 2 en mobile, 2 en desktop */}
-        <div className="order-2 lg:order-2">
+        <InView
+          variants={{
+            hidden: { opacity: 0, x: 30 },
+            visible: { opacity: 1, x: 0 }
+          }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="order-2 lg:order-2"
+        >
+        <div>
           <div className="bg-gradient-to-br from-blue-50 to-slate-100 rounded-2xl p-5 sm:p-6 shadow-lg border border-slate-200">
             <div className="space-y-4">
               
@@ -149,6 +170,7 @@ export default function SobreNosotros() {
             </div>
           </div>
         </div>
+        </InView>
       </div>
     </section>
   );
