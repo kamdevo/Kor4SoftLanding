@@ -129,7 +129,7 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
                   </div>
                   <div className="flex-1 min-w-0">
                     <h4 className="font-semibold mb-0.5 text-xs sm:text-sm">Email</h4>
-                    <p className="text-slate-200 text-xs sm:text-sm break-words">info@kor4soft.com</p>
+                    <p className="text-slate-200 text-xs sm:text-sm break-words">kor4softsas@gmail.com</p>
                   </div>
                 </div>
 
@@ -154,7 +154,7 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
                   </div>
                   <div className="flex-1 min-w-0">
                     <h4 className="font-semibold mb-0.5 text-xs sm:text-sm">Ubicación</h4>
-                    <p className="text-slate-200 text-xs sm:text-sm">Ciudad, País</p>
+                    <p className="text-slate-200 text-xs sm:text-sm">Cali, Colombia</p>
                   </div>
                 </div>
 
