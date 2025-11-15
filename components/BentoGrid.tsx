@@ -199,42 +199,36 @@ export default function BentoGrid() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
           {/* Paso 1 */}
-          <div className="relative flex flex-col items-center text-center">
-            <div className="w-16 h-16 bg-gradient-to-br from-slate-700 to-slate-800 rounded-2xl flex items-center justify-center mb-4 shadow-lg relative z-10">
+          <div className="flex flex-col items-center text-center">
+            <div className="w-16 h-16 bg-gradient-to-br from-slate-700 to-slate-800 rounded-2xl flex items-center justify-center mb-4 shadow-lg">
               <span className="text-2xl font-bold text-white">1</span>
             </div>
             <h4 className="font-bold text-slate-800 text-base mb-2">Consulta</h4>
             <p className="text-slate-600 text-sm leading-relaxed">
               Analizamos tus necesidades y objetivos
             </p>
-            {/* Conector - oculto en mobile */}
-            <div className="hidden lg:block absolute top-8 left-1/2 w-full h-0.5 bg-gradient-to-r from-slate-300 to-slate-200 z-0"></div>
           </div>
 
           {/* Paso 2 */}
-          <div className="relative flex flex-col items-center text-center">
-            <div className="w-16 h-16 bg-gradient-to-br from-slate-700 to-slate-800 rounded-2xl flex items-center justify-center mb-4 shadow-lg relative z-10">
+          <div className="flex flex-col items-center text-center">
+            <div className="w-16 h-16 bg-gradient-to-br from-slate-700 to-slate-800 rounded-2xl flex items-center justify-center mb-4 shadow-lg">
               <span className="text-2xl font-bold text-white">2</span>
             </div>
             <h4 className="font-bold text-slate-800 text-base mb-2">Diseño</h4>
             <p className="text-slate-600 text-sm leading-relaxed">
               Creamos la solución ideal para ti
             </p>
-            {/* Conector */}
-            <div className="hidden lg:block absolute top-8 left-1/2 w-full h-0.5 bg-gradient-to-r from-slate-300 to-slate-200 z-0"></div>
           </div>
 
           {/* Paso 3 */}
-          <div className="relative flex flex-col items-center text-center">
-            <div className="w-16 h-16 bg-gradient-to-br from-slate-700 to-slate-800 rounded-2xl flex items-center justify-center mb-4 shadow-lg relative z-10">
+          <div className="flex flex-col items-center text-center">
+            <div className="w-16 h-16 bg-gradient-to-br from-slate-700 to-slate-800 rounded-2xl flex items-center justify-center mb-4 shadow-lg">
               <span className="text-2xl font-bold text-white">3</span>
             </div>
             <h4 className="font-bold text-slate-800 text-base mb-2">Desarrollo</h4>
             <p className="text-slate-600 text-sm leading-relaxed">
               Implementamos con calidad y precisión
             </p>
-            {/* Conector */}
-            <div className="hidden lg:block absolute top-8 left-1/2 w-full h-0.5 bg-gradient-to-r from-slate-300 to-slate-200 z-0"></div>
           </div>
 
           {/* Paso 4 */}

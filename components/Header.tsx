@@ -58,8 +58,8 @@ export default function Header() {
             <a href="#servicios" className="text-sm lg:text-base text-slate-700 hover:text-slate-900 font-medium">
               Servicios
             </a>
-            <a href="#blog" className="text-sm lg:text-base text-slate-700 hover:text-slate-900 font-medium">
-              Blog
+            <a href="#portfolio" className="text-sm lg:text-base text-slate-700 hover:text-slate-900 font-medium">
+              Proyectos
             </a>
           </nav>
 

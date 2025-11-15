@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import SobreNosotros from "@/components/SobreNosotros";
 import BentoGrid from "@/components/BentoGrid";
+import Portfolio from "@/components/Portfolio";
 
 export default function Home() {
   return (
@@ -22,8 +23,11 @@ export default function Home() {
         {/* Sobre Nosotros Section */}
         <SobreNosotros />
         
-        {/* Bento Grid Section */}
+        {/* Servicios Section */}
         <BentoGrid />
+        
+        {/* Portfolio Section */}
+        <Portfolio />
       </div>
     </main>
   );

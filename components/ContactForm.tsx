@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface ContactFormProps {
   isOpen: boolean;
@@ -73,18 +74,31 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
     };
   }, [isOpen]);
 
-  if (!isOpen) return null;
-
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-4 md:p-6 animate-fadeIn overflow-y-auto">
-      {/* Overlay - Principio 1: Caja base con propósito claro */}
-      <div 
-        className="fixed inset-0 bg-black/50 backdrop-blur-sm -z-10"
-        onClick={onClose}
-      />
+    <AnimatePresence>
+      {isOpen && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-4 md:p-6 overflow-y-auto">
+          {/* Overlay con animación de fade */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm -z-10"
+            onClick={onClose}
+          />
 
-      {/* Modal Container - Sistema de cajas flexible y compacto */}
-      <div className="relative bg-white rounded-xl sm:rounded-2xl shadow-2xl w-full max-w-[95vw] sm:max-w-[90vw] lg:max-w-5xl overflow-hidden animate-slideUp my-auto">
+          {/* Modal Container con animación de scale + slide */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: 20 }}
+            transition={{ 
+              duration: 0.3,
+              ease: [0.16, 1, 0.3, 1] // easeOutExpo profesional
+            }}
+            className="relative bg-white rounded-xl sm:rounded-2xl shadow-2xl w-full max-w-[95vw] sm:max-w-[90vw] lg:max-w-5xl overflow-hidden my-auto"
+          >
         
         {/* Botón de cerrar - Posición adaptativa */}
         <button
@@ -317,7 +331,9 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
+      )}
+    </AnimatePresence>
   );
 }

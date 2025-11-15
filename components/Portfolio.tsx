@@ -1,0 +1,123 @@
+"use client";
+
+export default function Portfolio() {
+  const proyectos = [
+    {
+      id: 1,
+      nombre: "Sistema de Gestión Empresarial",
+      categoria: "Desarrollo Web",
+      descripcion: "Plataforma web completa para la gestión de inventarios, ventas y reportes en tiempo real.",
+      tecnologias: ["React", "Node.js", "MongoDB"],
+      imagen: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
+      resultados: "Aumento del 40% en productividad",
+    },
+    {
+      id: 2,
+      nombre: "App Móvil de E-commerce",
+      categoria: "Aplicación Móvil",
+      descripcion: "Aplicación nativa para iOS y Android con pasarela de pagos integrada y sistema de notificaciones.",
+      tecnologias: ["React Native", "Firebase", "Stripe"],
+      imagen: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=600&fit=crop",
+      resultados: "10,000+ descargas en 3 meses",
+    },
+    {
+      id: 3,
+      nombre: "Sistema de Automatización",
+      categoria: "Automatización",
+      descripcion: "Herramienta de automatización de procesos empresariales que reduce tareas manuales en un 70%.",
+      tecnologias: ["Python", "Laravel", "MySQL"],
+      imagen: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
+      resultados: "Ahorro de 20 horas semanales",
+    },
+  ];
+
+  return (
+    <section id="portfolio" className="container mx-auto px-4 py-12 sm:py-16 lg:py-20 max-w-7xl bg-slate-50">
+      {/* Header - Sistema de cajas */}
+      <div className="text-center mb-10 sm:mb-14 lg:mb-16">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-800 mb-4">
+          Proyectos Destacados
+        </h2>
+        <div className="w-24 h-1 bg-slate-700 mx-auto mb-5"></div>
+        <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto">
+          Casos de éxito que demuestran nuestra experiencia y compromiso con la excelencia
+        </p>
+      </div>
+
+      {/* Grid de proyectos - Rearreglo con propósito */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        {proyectos.map((proyecto) => (
+          <div
+            key={proyecto.id}
+            className="bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-200"
+          >
+            {/* Imagen del proyecto */}
+            <div className="relative h-48 sm:h-56 bg-slate-200 overflow-hidden">
+              <img
+                src={proyecto.imagen}
+                alt={proyecto.nombre}
+                className="w-full h-full object-cover"
+              />
+              {/* Badge de categoría */}
+              <div className="absolute top-4 left-4">
+                <span className="px-3 py-1 bg-slate-700 text-white text-xs font-semibold rounded-full">
+                  {proyecto.categoria}
+                </span>
+              </div>
+            </div>
+
+            {/* Contenido */}
+            <div className="p-5 sm:p-6">
+              <h3 className="text-xl font-bold text-slate-800 mb-3">
+                {proyecto.nombre}
+              </h3>
+              
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-4">
+                {proyecto.descripcion}
+              </p>
+
+              {/* Tecnologías */}
+              <div className="flex flex-wrap gap-2 mb-4">
+                {proyecto.tecnologias.map((tech, index) => (
+                  <span
+                    key={index}
+                    className="px-3 py-1 bg-slate-100 text-slate-700 text-xs font-medium rounded-full border border-slate-200"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+
+              {/* Resultados */}
+              <div className="pt-4 border-t border-slate-200">
+                <div className="flex items-center gap-2 text-slate-600">
+                  <svg className="w-4 h-4 text-slate-700 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span className="text-sm font-medium">{proyecto.resultados}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Call to Action */}
+      <div className="text-center mt-10 sm:mt-12 lg:mt-16">
+        <p className="text-slate-600 text-base sm:text-lg mb-6">
+          ¿Tienes un proyecto en mente? Hagámoslo realidad juntos
+        </p>
+        <button
+          onClick={() => {
+            const header = document.querySelector('header');
+            const contactButton = header?.querySelector('button');
+            contactButton?.click();
+          }}
+          className="inline-block px-6 sm:px-8 py-3 bg-slate-700 hover:bg-slate-800 text-white rounded-lg font-semibold text-sm sm:text-base"
+        >
+          Iniciar Proyecto
+        </button>
+      </div>
+    </section>
+  );
+}
