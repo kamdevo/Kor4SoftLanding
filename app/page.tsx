@@ -1,8 +1,13 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import SobreNosotros from "@/components/SobreNosotros";
+import Stats from "@/components/Stats";
 import BentoGrid from "@/components/BentoGrid";
 import Portfolio from "@/components/Portfolio";
+import Testimonials from "@/components/Testimonials";
+import FAQ from "@/components/FAQ";
+import Footer from "@/components/Footer";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 export default function Home() {
   return (
@@ -23,12 +28,27 @@ export default function Home() {
         {/* Sobre Nosotros Section */}
         <SobreNosotros />
         
+        {/* Stats Section */}
+        <Stats />
+        
         {/* Servicios Section */}
         <BentoGrid />
         
         {/* Portfolio Section */}
         <Portfolio />
+        
+        {/* Testimonials Section */}
+        <Testimonials />
+        
+        {/* FAQ Section */}
+        <FAQ />
       </div>
+      
+      {/* Footer */}
+      <Footer />
+      
+      {/* WhatsApp Floating Button */}
+      <WhatsAppButton />
     </main>
   );
 }

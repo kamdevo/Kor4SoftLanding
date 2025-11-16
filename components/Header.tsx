@@ -1,11 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import ContactForm from "./ContactForm";
+import { useEffect } from "react";
 
 export default function Header() {
-  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   useEffect(() => {
     const handleAnchorClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
@@ -50,7 +48,7 @@ export default function Header() {
             />
           </div>
 
-          {/* Navigation - Oculto en mobile (rearreglo con propósito) */}
+          {/* Navigation - Centrado y espaciado */}
           <nav className="hidden md:flex items-center gap-6 lg:gap-8 flex-1 justify-center">
             <a href="#sobre-nosotros" className="text-sm lg:text-base text-slate-700 hover:text-slate-900 font-medium">
               Sobre nosotros
@@ -62,23 +60,9 @@ export default function Header() {
               Proyectos
             </a>
           </nav>
-
-          {/* Contact Button - Adaptativo */}
-          <button 
-            onClick={() => setIsContactModalOpen(true)}
-            className="px-4 sm:px-6 py-2 bg-slate-200 hover:bg-slate-300 text-slate-800 rounded-lg text-sm sm:text-base font-medium flex-shrink-0"
-          >
-            Contáctanos
-          </button>
           </div>
         </div>
       </header>
-
-      {/* Contact Modal - Fuera del header para correcto posicionamiento */}
-      <ContactForm 
-        isOpen={isContactModalOpen} 
-        onClose={() => setIsContactModalOpen(false)} 
-      />
     </>
   );
 }
