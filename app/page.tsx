@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import SobreNosotros from "@/components/SobreNosotros";
+import MisionVision from "@/components/MisionVision";
 import Stats from "@/components/Stats";
 import BentoGrid from "@/components/BentoGrid";
 import Portfolio from "@/components/Portfolio";
@@ -41,6 +42,9 @@ export default function Home() {
         
         {/* Sobre Nosotros Section */}
         <SobreNosotros />
+        
+        {/* Mision y Vision Section */}
+        <MisionVision />
         
         {/* Stats Section */}
         <Stats />
