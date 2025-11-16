@@ -7,7 +7,7 @@ export default function Portfolio() {
     {
       id: 1,
       nombre: "Sistema de Gestión Empresarial",
-      categoria: "Desarrollo Web",
+      categoria: "Desarrollo web",
       descripcion: "Plataforma web completa para la gestión de inventarios, ventas y reportes en tiempo real.",
       tecnologias: ["React", "Node.js", "MongoDB"],
       imagen: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
@@ -16,7 +16,7 @@ export default function Portfolio() {
     {
       id: 2,
       nombre: "App Móvil de E-commerce",
-      categoria: "Aplicación Móvil",
+      categoria: "Aplicación móvil",
       descripcion: "Aplicación nativa para iOS y Android con pasarela de pagos integrada y sistema de notificaciones.",
       tecnologias: ["React Native", "Firebase", "Stripe"],
       imagen: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=600&fit=crop",
@@ -38,7 +38,7 @@ export default function Portfolio() {
       {/* Header - Sistema de cajas */}
       <div className="text-center mb-10 sm:mb-14 lg:mb-16">
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-800 mb-4">
-          Proyectos Destacados
+          Proyectos destacados
         </h2>
         <div className="w-24 h-1 bg-slate-700 mx-auto mb-5"></div>
         <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto">
@@ -110,23 +110,6 @@ export default function Portfolio() {
           </div>
           </InView>
         ))}
-      </div>
-
-      {/* Call to Action */}
-      <div className="text-center mt-10 sm:mt-12 lg:mt-16">
-        <p className="text-slate-600 text-base sm:text-lg mb-6">
-          ¿Tienes un proyecto en mente? Hagámoslo realidad juntos
-        </p>
-        <button
-          onClick={() => {
-            const header = document.querySelector('header');
-            const contactButton = header?.querySelector('button');
-            contactButton?.click();
-          }}
-          className="inline-block px-6 sm:px-8 py-3 bg-slate-700 hover:bg-slate-800 text-white rounded-lg font-semibold text-sm sm:text-base"
-        >
-          Iniciar Proyecto
-        </button>
       </div>
     </section>
   );

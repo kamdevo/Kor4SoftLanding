@@ -77,11 +77,11 @@ export default function Footer() {
 
           {/* Columna 2: Enlaces rápidos */}
           <div>
-            <h3 className="text-white font-bold text-lg mb-4">Enlaces Rápidos</h3>
+            <h3 className="text-white font-bold text-lg mb-4">Enlaces rápidos</h3>
             <ul className="space-y-2">
               <li>
                 <a href="#sobre-nosotros" className="text-sm hover:text-white transition-colors">
-                  Sobre Nosotros
+                  Sobre nosotros
                 </a>
               </li>
               <li>
@@ -107,16 +107,16 @@ export default function Footer() {
             <h3 className="text-white font-bold text-lg mb-4">Servicios</h3>
             <ul className="space-y-2">
               <li>
-                <span className="text-sm">Desarrollo Web</span>
+                <span className="text-sm">Desarrollo web</span>
               </li>
               <li>
-                <span className="text-sm">Aplicaciones Móviles</span>
+                <span className="text-sm">Aplicaciones móviles</span>
               </li>
               <li>
                 <span className="text-sm">Automatización</span>
               </li>
               <li>
-                <span className="text-sm">Consultoría Tecnológica</span>
+                <span className="text-sm">Consultoría tecnológica</span>
               </li>
             </ul>
           </div>
@@ -158,10 +158,10 @@ export default function Footer() {
           <p>© {currentYear} Kor4Soft. Todos los derechos reservados.</p>
           <div className="flex gap-6">
             <a href="#" className="hover:text-white transition-colors">
-              Política de Privacidad
+              Política de privacidad
             </a>
             <a href="#" className="hover:text-white transition-colors">
-              Términos de Servicio
+              Términos de servicio
             </a>
           </div>
         </div>

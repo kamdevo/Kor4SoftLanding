@@ -8,7 +8,7 @@ export default function BentoGrid() {
       {/* Header mejorado */}
       <div className="text-center mb-12 sm:mb-16">
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-800 mb-4">
-          Nuestros Servicios
+          Nuestros servicios
         </h2>
         <div className="w-24 h-1 bg-gradient-to-r from-slate-700 via-slate-600 to-slate-700 mx-auto mb-5"></div>
         <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto">
@@ -39,7 +39,7 @@ export default function BentoGrid() {
               <span className="px-3 py-1 bg-slate-700 text-white text-xs font-semibold rounded-full">Popular</span>
             </div>
 
-            <h3 className="text-2xl font-bold text-slate-800 mb-3">Desarrollo Web</h3>
+            <h3 className="text-2xl font-bold text-slate-800 mb-3">Desarrollo web</h3>
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-5">
               Aplicaciones web modernas, escalables y de alto rendimiento que impulsan tu negocio.
             </p>
@@ -102,7 +102,7 @@ export default function BentoGrid() {
               </div>
             </div>
 
-            <h3 className="text-2xl font-bold text-slate-800 mb-3">Aplicaciones Móviles</h3>
+            <h3 className="text-2xl font-bold text-slate-800 mb-3">Aplicaciones móviles</h3>
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-5">
               Apps nativas e híbridas para iOS y Android que conectan con tu audiencia.
             </p>
@@ -204,7 +204,7 @@ export default function BentoGrid() {
           className="sm:col-span-2"
         >
         <div className="bg-gradient-to-br from-slate-700 to-slate-800 rounded-xl p-6 shadow-lg text-white hover:shadow-2xl transition-shadow duration-300">
-          <h3 className="text-xl font-bold mb-4">Tecnologías que Dominamos</h3>
+          <h3 className="text-xl font-bold mb-4">Tecnologías que dominamos</h3>
           <div className="grid grid-cols-2 gap-3">
             <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-lg p-3">
               <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
@@ -238,7 +238,7 @@ export default function BentoGrid() {
       {/* Proceso de Trabajo - Rediseñado */}
       <div className="bg-gradient-to-br from-slate-50 to-white rounded-2xl p-6 sm:p-8 shadow-lg border border-slate-200">
         <div className="text-center mb-8">
-          <h3 className="text-2xl sm:text-3xl font-bold text-slate-800 mb-2">Nuestro Proceso</h3>
+          <h3 className="text-2xl sm:text-3xl font-bold text-slate-800 mb-2">Nuestro proceso</h3>
           <p className="text-slate-600 text-sm sm:text-base">De la idea a la realidad en 4 pasos</p>
         </div>
 

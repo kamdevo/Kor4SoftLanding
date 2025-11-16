@@ -38,7 +38,7 @@ export default function Testimonials() {
       {/* Header */}
       <div className="text-center mb-10 sm:mb-14 lg:mb-16">
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-800 mb-4">
-          Lo Que Dicen Nuestros Clientes
+          Lo que dicen nuestros clientes
         </h2>
         <div className="w-24 h-1 bg-slate-700 mx-auto mb-5"></div>
         <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto">
@@ -99,25 +99,6 @@ export default function Testimonials() {
             </div>
           </InView>
         ))}
-      </div>
-
-      {/* CTA */}
-      <div className="text-center mt-10 sm:mt-12 lg:mt-16">
-        <p className="text-slate-600 text-base sm:text-lg mb-6">
-          ¿Quieres ser parte de nuestras historias de éxito?
-        </p>
-        <a
-          href="#contacto"
-          onClick={(e) => {
-            e.preventDefault();
-            const header = document.querySelector('header');
-            const contactButton = header?.querySelector('button');
-            contactButton?.click();
-          }}
-          className="inline-block px-6 sm:px-8 py-3 bg-slate-700 hover:bg-slate-800 text-white rounded-lg font-semibold text-sm sm:text-base transition-all duration-300 shadow-lg hover:shadow-xl"
-        >
-          Comenzar Ahora
-        </a>
       </div>
     </section>
   );

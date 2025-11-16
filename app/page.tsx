@@ -1,3 +1,6 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import SobreNosotros from "@/components/SobreNosotros";
@@ -8,8 +11,19 @@ import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import ContactForm from "@/components/ContactForm";
 
 export default function Home() {
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+
+  // Función global para abrir el modal desde cualquier componente
+  useEffect(() => {
+    (window as any).openContactModal = () => setIsContactModalOpen(true);
+    return () => {
+      delete (window as any).openContactModal;
+    };
+  }, []);
+
   return (
     <main className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-50 relative overflow-hidden">
       {/* Background wave patterns */}
@@ -49,6 +63,12 @@ export default function Home() {
       
       {/* WhatsApp Floating Button */}
       <WhatsAppButton />
+      
+      {/* Contact Modal Global */}
+      <ContactForm 
+        isOpen={isContactModalOpen} 
+        onClose={() => setIsContactModalOpen(false)} 
+      />
     </main>
   );
 }

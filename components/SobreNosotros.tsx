@@ -8,7 +8,7 @@ export default function SobreNosotros() {
       {/* Header - Sistema de cajas con jerarquía clara */}
       <div className="text-center mb-10 sm:mb-14 lg:mb-16">
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-800 mb-4">
-          Sobre Nosotros
+          Sobre nosotros
         </h2>
         <div className="w-24 h-1 bg-slate-700 mx-auto mb-5"></div>
         <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto">
