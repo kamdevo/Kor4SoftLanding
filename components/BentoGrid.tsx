@@ -25,21 +25,21 @@ export default function BentoGrid() {
           }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          <div className="group h-full bg-white rounded-3xl p-8 sm:p-10 shadow-lg border border-slate-100 hover:shadow-2xl hover:border-blue-100 transition-all duration-500 hover:-translate-y-2 relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-bl-full -mr-10 -mt-10 transition-transform duration-500 group-hover:scale-150 group-hover:bg-blue-100/50"></div>
+          <div className="group h-full bg-white rounded-3xl p-8 sm:p-10 shadow-lg border border-slate-100 hover:shadow-2xl hover:border-slate-300 transition-all duration-500 hover:-translate-y-2 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-slate-50 rounded-bl-full -mr-10 -mt-10 transition-transform duration-500 group-hover:scale-150 group-hover:bg-slate-100/50"></div>
 
             <div className="relative z-10">
               {/* Icono y badge */}
               <div className="flex items-start justify-between mb-6">
-                <div className="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center shadow-lg shadow-blue-600/20 group-hover:scale-110 transition-transform duration-500">
+                <div className="w-16 h-16 bg-slate-900 rounded-2xl flex items-center justify-center shadow-lg shadow-slate-900/20 group-hover:scale-110 transition-transform duration-500">
                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                   </svg>
                 </div>
-                <span className="px-4 py-1.5 bg-blue-50 text-blue-700 text-xs font-bold uppercase tracking-wider rounded-full border border-blue-100">Popular</span>
+                <span className="px-4 py-1.5 bg-slate-100 text-slate-700 text-xs font-bold uppercase tracking-wider rounded-full border border-slate-200">Popular</span>
               </div>
 
-              <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-4 group-hover:text-blue-700 transition-colors">Desarrollo web</h3>
+              <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-4 group-hover:text-slate-700 transition-colors">Desarrollo web</h3>
               <p className="text-slate-600 text-base sm:text-lg leading-relaxed mb-8">
                 Aplicaciones web modernas, escalables y de alto rendimiento que impulsan tu negocio al siguiente nivel.
               </p>
@@ -47,24 +47,24 @@ export default function BentoGrid() {
               {/* Características */}
               <div className="space-y-4 mb-8">
                 <div className="flex items-center gap-4">
-                  <div className="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <svg className="w-3.5 h-3.5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-6 h-6 bg-slate-100 rounded-full flex items-center justify-center flex-shrink-0">
+                    <svg className="w-3.5 h-3.5 text-slate-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
                   <span className="text-base text-slate-700 font-medium">React y Next.js</span>
                 </div>
                 <div className="flex items-center gap-4">
-                  <div className="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <svg className="w-3.5 h-3.5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-6 h-6 bg-slate-100 rounded-full flex items-center justify-center flex-shrink-0">
+                    <svg className="w-3.5 h-3.5 text-slate-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
                   <span className="text-base text-slate-700 font-medium">Laravel y Node.js</span>
                 </div>
                 <div className="flex items-center gap-4">
-                  <div className="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <svg className="w-3.5 h-3.5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-6 h-6 bg-slate-100 rounded-full flex items-center justify-center flex-shrink-0">
+                    <svg className="w-3.5 h-3.5 text-slate-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>

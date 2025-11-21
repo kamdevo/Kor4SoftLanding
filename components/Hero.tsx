@@ -19,7 +19,7 @@ export default function Hero() {
             <div className="absolute -inset-1 bg-gradient-to-r from-slate-200 to-blue-200 rounded-full blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
             <div className="relative w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 bg-white rounded-full flex items-center justify-center shadow-xl ring-1 ring-slate-900/5">
               <Image
-                src="/Logo.png"
+                src="/Logocircular.png"
                 alt="Kor4Soft Logo"
                 width={100}
                 height={100}
