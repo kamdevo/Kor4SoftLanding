@@ -155,7 +155,7 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
                   </div>
                   <div className="flex-1 min-w-0">
                     <h4 className="font-semibold mb-0.5 text-xs sm:text-sm">Teléfono</h4>
-                    <p className="text-slate-200 text-xs sm:text-sm">+1 (555) 123-4567</p>
+                    <p className="text-slate-200 text-xs sm:text-sm">+57 (318) 188-3915</p>
                   </div>
                 </div>
 
@@ -180,7 +180,7 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
                   </div>
                   <div className="flex-1 min-w-0">
                     <h4 className="font-semibold mb-0.5 text-xs sm:text-sm">Horario de Atención</h4>
-                    <p className="text-slate-200 text-xs sm:text-sm">Lun - Vie: 9:00 AM - 6:00 PM</p>
+                    <p className="text-slate-200 text-xs sm:text-sm">Lun - Vie: 8:00 AM - 6:00 PM</p>
                   </div>
                 </div>
               </div>
