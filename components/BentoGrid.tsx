@@ -31,7 +31,7 @@ export default function BentoGrid() {
             <div className="relative z-10">
               {/* Icono y badge */}
               <div className="flex items-start justify-between mb-6">
-                <div className="w-16 h-16 bg-slate-900 rounded-2xl flex items-center justify-center shadow-lg shadow-slate-900/20 group-hover:scale-110 transition-transform duration-500">
+                <div className="w-16 h-16 bg-slate-900 rounded-2xl flex items-center justify-center shadow-lg shadow-slate-900/20">
                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                   </svg>
@@ -97,7 +97,7 @@ export default function BentoGrid() {
             <div className="relative z-10">
               {/* Icono */}
               <div className="flex items-start justify-between mb-6">
-                <div className="w-16 h-16 bg-slate-700 rounded-2xl flex items-center justify-center shadow-lg shadow-slate-700/20 group-hover:scale-110 transition-transform duration-500">
+                <div className="w-16 h-16 bg-slate-700 rounded-2xl flex items-center justify-center shadow-lg shadow-slate-700/20">
                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
                   </svg>
