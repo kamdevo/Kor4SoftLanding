@@ -73,6 +73,15 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
   });
 
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [isSelectOpen, setIsSelectOpen] = useState(false);
+
+  const subjectOptions = [
+    { value: "desarrollo-web", label: "Desarrollo Web" },
+    { value: "app-movil", label: "Aplicación Móvil" },
+    { value: "automatizacion", label: "Automatización" },
+    { value: "consultoria", label: "Consultoría" },
+    { value: "otro", label: "Otro" }
+  ];
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -86,9 +95,21 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
     e.preventDefault();
     setStatus("sending");
 
-    // TODO: Aquí se implementará el envío por Gmail
-    setTimeout(() => {
-      console.log("Datos del formulario:", formData);
+    try {
+      const response = await fetch('/api/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Error al enviar el mensaje');
+      }
+
       setStatus("success");
       
       setTimeout(() => {
@@ -101,8 +122,15 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
         });
         setStatus("idle");
         onClose();
-      }, 2000);
-    }, 1500);
+      }, 2500);
+    } catch (error) {
+      console.error('Error:', error);
+      setStatus("error");
+      
+      setTimeout(() => {
+        setStatus("idle");
+      }, 3000);
+    }
   };
 
   // Cerrar modal con tecla Escape
@@ -316,21 +344,62 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
                   <label htmlFor="asunto" className="block text-xs font-semibold text-slate-700 mb-1">
                     Asunto *
                   </label>
-                  <select
-                    id="asunto"
-                    name="asunto"
-                    value={formData.asunto}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-3 py-2 text-sm text-slate-900 border border-slate-300 rounded-md focus:ring-2 focus:ring-slate-700 focus:border-transparent outline-none transition-all bg-white"
-                  >
-                    <option value="">Selecciona un asunto</option>
-                    <option value="desarrollo-web">Desarrollo Web</option>
-                    <option value="app-movil">Aplicación Móvil</option>
-                    <option value="automatizacion">Automatización</option>
-                    <option value="consultoria">Consultoría</option>
-                    <option value="otro">Otro</option>
-                  </select>
+                  <div className="relative">
+                    <button
+                      type="button"
+                      onClick={() => setIsSelectOpen(!isSelectOpen)}
+                      className={`w-full px-3 py-2 text-sm text-left border rounded-md focus:ring-2 focus:ring-slate-700 focus:border-transparent outline-none transition-all flex items-center justify-between bg-white ${
+                        formData.asunto ? "text-slate-900" : "text-slate-400"
+                      } ${isSelectOpen ? "border-slate-700 ring-2 ring-slate-700" : "border-slate-300"}`}
+                    >
+                      <span>
+                        {formData.asunto 
+                          ? subjectOptions.find(opt => opt.value === formData.asunto)?.label 
+                          : "Selecciona un asunto"}
+                      </span>
+                      <svg 
+                        className={`w-4 h-4 text-slate-500 transition-transform duration-200 ${isSelectOpen ? "rotate-180" : ""}`} 
+                        fill="none" 
+                        stroke="currentColor" 
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </button>
+
+                    <AnimatePresence>
+                      {isSelectOpen && (
+                        <>
+                          <div className="fixed inset-0 z-10" onClick={() => setIsSelectOpen(false)} />
+                          <motion.ul
+                            initial={{ opacity: 0, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -10 }}
+                            transition={{ duration: 0.2 }}
+                            className="absolute z-20 w-full mt-1 bg-white border border-slate-200 rounded-md shadow-xl max-h-60 overflow-auto py-1"
+                          >
+                            {subjectOptions.map((option) => (
+                              <li
+                                key={option.value}
+                                onClick={() => {
+                                  setFormData(prev => ({ ...prev, asunto: option.value }));
+                                  setIsSelectOpen(false);
+                                }}
+                                className="px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-slate-900 cursor-pointer transition-colors flex items-center justify-between"
+                              >
+                                {option.label}
+                                {formData.asunto === option.value && (
+                                  <svg className="w-4 h-4 text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                  </svg>
+                                )}
+                              </li>
+                            ))}
+                          </motion.ul>
+                        </>
+                      )}
+                    </AnimatePresence>
+                  </div>
                 </div>
 
                 {/* Mensaje */}
