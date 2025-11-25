@@ -47,8 +47,8 @@ export default function ParticlesBackground() {
           color: "#cbd5e1", // slate-300
           distance: 150,
           enable: true,
-          opacity: 0.3,
-          width: 1,
+          opacity: 0.4,
+          width: 1.2,
         },
         move: {
           direction: "none",
@@ -70,8 +70,8 @@ export default function ParticlesBackground() {
         },
         opacity: {
           value: {
-            min: 0.3,
-            max: 0.6,
+            min: 0.4,
+            max: 0.7,
           },
           animation: {
             enable: true,
@@ -83,7 +83,7 @@ export default function ParticlesBackground() {
           type: "circle",
         },
         size: {
-          value: { min: 1, max: 3 },
+          value: { min: 2, max: 5 },
         },
       },
       detectRetina: true,
