@@ -24,19 +24,17 @@ const overlayVariants: Variants = {
 const modalVariants: Variants = {
   hidden: { 
     opacity: 0, 
-    scale: 0.8,
-    y: 40,
-    filter: "blur(10px)"
+    scale: 0.95,
+    y: 30
   },
   visible: { 
     opacity: 1, 
     scale: 1, 
     y: 0,
-    filter: "blur(0px)",
     transition: { 
       type: "spring",
       stiffness: 300,
-      damping: 24,
+      damping: 25,
       mass: 0.8,
       staggerChildren: 0.07,
       delayChildren: 0.1
@@ -44,9 +42,8 @@ const modalVariants: Variants = {
   },
   exit: { 
     opacity: 0, 
-    scale: 0.9,
-    y: 20,
-    filter: "blur(5px)",
+    scale: 0.97,
+    y: 15,
     transition: { 
       duration: 0.2,
       ease: [0.4, 0, 1, 1]
@@ -160,14 +157,15 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-4 md:p-6 overflow-y-auto">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-4 md:p-6 overflow-y-auto" style={{ minHeight: '-webkit-fill-available' }}>
           {/* Overlay con animación de fade suave */}
           <motion.div
             variants={overlayVariants}
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="fixed inset-0 bg-black/60 backdrop-blur-md -z-10"
+            className="fixed inset-0 bg-black/60 -z-10"
+            style={{ backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)' }}
             onClick={onClose}
           />
 
