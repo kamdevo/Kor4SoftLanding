@@ -117,15 +117,11 @@ export default function Hero() {
           <div className="relative w-full max-w-3xl mx-auto flex items-center justify-center gap-6 sm:gap-10">
 
             {/* React */}
-            <div className="relative">
-              <div className={`absolute -inset-2 bg-blue-50 rounded-full blur-md transition-opacity duration-300 ${selectedTech === 'react' ? 'opacity-100' : 'opacity-0 hover:opacity-100'}`}></div>
-              <button onClick={() => handleTechClick('react')} className={`relative w-14 h-14 sm:w-16 sm:h-16 bg-white rounded-2xl shadow-lg border flex items-center justify-center transition-all duration-300 cursor-pointer ${selectedTech === 'react' ? 'scale-110 border-blue-300 ring-2 ring-blue-200' : 'border-slate-100 hover:scale-110'}`}>
-                <Image src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png" alt="React" width={32} height={32} className="w-8 h-8 sm:w-10 sm:h-10 object-contain animate-spin-slow" unoptimized />
-              </button>
+            <div className="relative flex flex-col items-center">
               <AnimatePresence>
                 {selectedTech === 'react' && (
-                  <motion.div variants={tooltipVariants} initial="hidden" animate="visible" exit="exit" className="absolute left-1/2 -translate-x-1/2 bottom-[calc(100%+12px)] w-56 sm:w-64 z-50">
-                    <div className="bg-white rounded-xl shadow-xl border border-slate-200 p-3">
+                  <motion.div variants={tooltipVariants} initial="hidden" animate="visible" exit="exit" className="absolute bottom-full mb-3 w-56 sm:w-64 z-50">
+                    <div className="bg-white rounded-xl shadow-xl border border-slate-200 p-3 relative">
                       <div className="absolute left-1/2 -translate-x-1/2 -bottom-2 w-3 h-3 bg-white border-r border-b border-slate-200 rotate-45"></div>
                       <div className="flex items-center gap-2 mb-1.5">
                         <div className={`w-6 h-6 ${techData.react.color} rounded-md flex items-center justify-center`}><span className="text-white text-xs font-bold">R</span></div>
@@ -137,18 +133,18 @@ export default function Hero() {
                   </motion.div>
                 )}
               </AnimatePresence>
+              <div className={`absolute -inset-2 bg-blue-50 rounded-full blur-md transition-opacity duration-300 ${selectedTech === 'react' ? 'opacity-100' : 'opacity-0 hover:opacity-100'}`}></div>
+              <button onClick={() => handleTechClick('react')} className={`relative w-14 h-14 sm:w-16 sm:h-16 bg-white rounded-2xl shadow-lg border flex items-center justify-center transition-all duration-300 cursor-pointer ${selectedTech === 'react' ? 'scale-110 border-blue-300 ring-2 ring-blue-200' : 'border-slate-100 hover:scale-110'}`}>
+                <Image src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png" alt="React" width={32} height={32} className="w-8 h-8 sm:w-10 sm:h-10 object-contain animate-spin-slow" unoptimized />
+              </button>
             </div>
 
             {/* Next.js */}
-            <div className="relative">
-              <div className={`absolute -inset-2 bg-slate-200 rounded-full blur-md transition-opacity duration-300 ${selectedTech === 'nextjs' ? 'opacity-100' : 'opacity-0 hover:opacity-100'}`}></div>
-              <button onClick={() => handleTechClick('nextjs')} className={`relative w-14 h-14 sm:w-16 sm:h-16 bg-white rounded-2xl shadow-lg border flex items-center justify-center transition-all duration-300 cursor-pointer ${selectedTech === 'nextjs' ? 'scale-110 border-slate-400 ring-2 ring-slate-300' : 'border-slate-100 hover:scale-110'}`}>
-                <Image src="https://www.svgrepo.com/show/354113/nextjs-icon.svg" alt="Next.js" width={32} height={32} className="w-8 h-8 sm:w-10 sm:h-10 object-contain" unoptimized />
-              </button>
+            <div className="relative flex flex-col items-center">
               <AnimatePresence>
                 {selectedTech === 'nextjs' && (
-                  <motion.div variants={tooltipVariants} initial="hidden" animate="visible" exit="exit" className="absolute left-1/2 -translate-x-1/2 bottom-[calc(100%+12px)] w-56 sm:w-64 z-50">
-                    <div className="bg-white rounded-xl shadow-xl border border-slate-200 p-3">
+                  <motion.div variants={tooltipVariants} initial="hidden" animate="visible" exit="exit" className="absolute bottom-full mb-3 w-56 sm:w-64 z-50">
+                    <div className="bg-white rounded-xl shadow-xl border border-slate-200 p-3 relative">
                       <div className="absolute left-1/2 -translate-x-1/2 -bottom-2 w-3 h-3 bg-white border-r border-b border-slate-200 rotate-45"></div>
                       <div className="flex items-center gap-2 mb-1.5">
                         <div className={`w-6 h-6 ${techData.nextjs.color} rounded-md flex items-center justify-center`}><span className="text-white text-xs font-bold">N</span></div>
@@ -160,6 +156,10 @@ export default function Hero() {
                   </motion.div>
                 )}
               </AnimatePresence>
+              <div className={`absolute -inset-2 bg-slate-200 rounded-full blur-md transition-opacity duration-300 ${selectedTech === 'nextjs' ? 'opacity-100' : 'opacity-0 hover:opacity-100'}`}></div>
+              <button onClick={() => handleTechClick('nextjs')} className={`relative w-14 h-14 sm:w-16 sm:h-16 bg-white rounded-2xl shadow-lg border flex items-center justify-center transition-all duration-300 cursor-pointer ${selectedTech === 'nextjs' ? 'scale-110 border-slate-400 ring-2 ring-slate-300' : 'border-slate-100 hover:scale-110'}`}>
+                <Image src="https://www.svgrepo.com/show/354113/nextjs-icon.svg" alt="Next.js" width={32} height={32} className="w-8 h-8 sm:w-10 sm:h-10 object-contain" unoptimized />
+              </button>
             </div>
 
             {/* Central Security/Core Icon */}
@@ -173,15 +173,11 @@ export default function Hero() {
             </div>
 
             {/* Laravel */}
-            <div className="relative">
-              <div className={`absolute -inset-2 bg-red-50 rounded-full blur-md transition-opacity duration-300 ${selectedTech === 'laravel' ? 'opacity-100' : 'opacity-0 hover:opacity-100'}`}></div>
-              <button onClick={() => handleTechClick('laravel')} className={`relative w-14 h-14 sm:w-16 sm:h-16 bg-white rounded-2xl shadow-lg border flex items-center justify-center transition-all duration-300 cursor-pointer ${selectedTech === 'laravel' ? 'scale-110 border-red-300 ring-2 ring-red-200' : 'border-slate-100 hover:scale-110'}`}>
-                <Image src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Laravel.svg/1969px-Laravel.svg.png" alt="Laravel" width={32} height={32} className="w-8 h-8 sm:w-10 sm:h-10 object-contain" unoptimized />
-              </button>
+            <div className="relative flex flex-col items-center">
               <AnimatePresence>
                 {selectedTech === 'laravel' && (
-                  <motion.div variants={tooltipVariants} initial="hidden" animate="visible" exit="exit" className="absolute left-1/2 -translate-x-1/2 bottom-[calc(100%+12px)] w-56 sm:w-64 z-50">
-                    <div className="bg-white rounded-xl shadow-xl border border-slate-200 p-3">
+                  <motion.div variants={tooltipVariants} initial="hidden" animate="visible" exit="exit" className="absolute bottom-full mb-3 w-56 sm:w-64 z-50">
+                    <div className="bg-white rounded-xl shadow-xl border border-slate-200 p-3 relative">
                       <div className="absolute left-1/2 -translate-x-1/2 -bottom-2 w-3 h-3 bg-white border-r border-b border-slate-200 rotate-45"></div>
                       <div className="flex items-center gap-2 mb-1.5">
                         <div className={`w-6 h-6 ${techData.laravel.color} rounded-md flex items-center justify-center`}><span className="text-white text-xs font-bold">L</span></div>
@@ -193,18 +189,18 @@ export default function Hero() {
                   </motion.div>
                 )}
               </AnimatePresence>
+              <div className={`absolute -inset-2 bg-red-50 rounded-full blur-md transition-opacity duration-300 ${selectedTech === 'laravel' ? 'opacity-100' : 'opacity-0 hover:opacity-100'}`}></div>
+              <button onClick={() => handleTechClick('laravel')} className={`relative w-14 h-14 sm:w-16 sm:h-16 bg-white rounded-2xl shadow-lg border flex items-center justify-center transition-all duration-300 cursor-pointer ${selectedTech === 'laravel' ? 'scale-110 border-red-300 ring-2 ring-red-200' : 'border-slate-100 hover:scale-110'}`}>
+                <Image src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Laravel.svg/1969px-Laravel.svg.png" alt="Laravel" width={32} height={32} className="w-8 h-8 sm:w-10 sm:h-10 object-contain" unoptimized />
+              </button>
             </div>
 
             {/* Node.js */}
-            <div className="relative">
-              <div className={`absolute -inset-2 bg-green-50 rounded-full blur-md transition-opacity duration-300 ${selectedTech === 'nodejs' ? 'opacity-100' : 'opacity-0 hover:opacity-100'}`}></div>
-              <button onClick={() => handleTechClick('nodejs')} className={`relative w-14 h-14 sm:w-16 sm:h-16 bg-white rounded-2xl shadow-lg border flex items-center justify-center transition-all duration-300 cursor-pointer ${selectedTech === 'nodejs' ? 'scale-110 border-green-300 ring-2 ring-green-200' : 'border-slate-100 hover:scale-110'}`}>
-                <Image src="https://www.svgrepo.com/show/354119/nodejs-icon.svg" alt="Node.js" width={32} height={32} className="w-8 h-8 sm:w-10 sm:h-10 object-contain" unoptimized />
-              </button>
+            <div className="relative flex flex-col items-center">
               <AnimatePresence>
                 {selectedTech === 'nodejs' && (
-                  <motion.div variants={tooltipVariants} initial="hidden" animate="visible" exit="exit" className="absolute left-1/2 -translate-x-1/2 bottom-[calc(100%+12px)] w-56 sm:w-64 z-50">
-                    <div className="bg-white rounded-xl shadow-xl border border-slate-200 p-3">
+                  <motion.div variants={tooltipVariants} initial="hidden" animate="visible" exit="exit" className="absolute bottom-full mb-3 w-56 sm:w-64 z-50">
+                    <div className="bg-white rounded-xl shadow-xl border border-slate-200 p-3 relative">
                       <div className="absolute left-1/2 -translate-x-1/2 -bottom-2 w-3 h-3 bg-white border-r border-b border-slate-200 rotate-45"></div>
                       <div className="flex items-center gap-2 mb-1.5">
                         <div className={`w-6 h-6 ${techData.nodejs.color} rounded-md flex items-center justify-center`}><span className="text-white text-xs font-bold">N</span></div>
@@ -216,6 +212,10 @@ export default function Hero() {
                   </motion.div>
                 )}
               </AnimatePresence>
+              <div className={`absolute -inset-2 bg-green-50 rounded-full blur-md transition-opacity duration-300 ${selectedTech === 'nodejs' ? 'opacity-100' : 'opacity-0 hover:opacity-100'}`}></div>
+              <button onClick={() => handleTechClick('nodejs')} className={`relative w-14 h-14 sm:w-16 sm:h-16 bg-white rounded-2xl shadow-lg border flex items-center justify-center transition-all duration-300 cursor-pointer ${selectedTech === 'nodejs' ? 'scale-110 border-green-300 ring-2 ring-green-200' : 'border-slate-100 hover:scale-110'}`}>
+                <Image src="https://www.svgrepo.com/show/354119/nodejs-icon.svg" alt="Node.js" width={32} height={32} className="w-8 h-8 sm:w-10 sm:h-10 object-contain" unoptimized />
+              </button>
             </div>
 
           </div>
