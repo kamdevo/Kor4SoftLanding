@@ -10,6 +10,7 @@ import BentoGrid from "@/components/BentoGrid";
 import Portfolio from "@/components/Portfolio";
 import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
+import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ContactForm from "@/components/ContactForm";
@@ -60,6 +61,9 @@ export default function Home() {
         
         {/* FAQ Section */}
         <FAQ />
+        
+        {/* CTA Final Section */}
+        <CTA />
       </div>
       
       {/* Footer */}

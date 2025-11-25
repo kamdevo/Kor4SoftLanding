@@ -205,34 +205,49 @@ export default function BentoGrid() {
           transition={{ duration: 0.4, delay: 0.5 }}
           className="sm:col-span-2"
         >
-          <div className="h-full bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-8 shadow-lg text-white hover:shadow-2xl transition-shadow duration-300 relative overflow-hidden group">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-16 -mt-16 blur-3xl group-hover:bg-white/10 transition-colors"></div>
+          <div className="h-full bg-slate-900 rounded-2xl p-8 shadow-lg text-white hover:shadow-xl transition-shadow duration-300 relative overflow-hidden group">
+            {/* Fondo decorativo */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600/10 rounded-full -mr-16 -mt-16 blur-3xl group-hover:bg-blue-600/20 transition-colors"></div>
+            <div className="absolute bottom-0 left-0 w-40 h-40 bg-purple-600/10 rounded-full -ml-10 -mb-10 blur-2xl group-hover:bg-purple-600/20 transition-colors"></div>
 
             <h3 className="text-2xl font-bold mb-6 relative z-10">Tecnologías que dominamos</h3>
-            <div className="grid grid-cols-2 gap-4 relative z-10">
-              <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-xl p-3 hover:bg-white/20 transition-colors">
-                <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">R</span>
-                </div>
-                <span className="text-sm font-semibold">React</span>
+            
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 relative z-10">
+              {/* React */}
+              <div className="flex flex-col items-center justify-center gap-3 bg-white/5 backdrop-blur-sm rounded-xl p-4 hover:bg-white/10 transition-all duration-300 hover:-translate-y-1 border border-white/5 hover:border-white/10 group/item">
+                <svg className="w-10 h-10 text-[#61DAFB] group-hover/item:scale-110 transition-transform duration-300" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z" opacity="0.2"/>
+                  <circle cx="12" cy="12" r="2" />
+                  <g transform="rotate(60 12 12)"><ellipse cx="12" cy="12" rx="9" ry="3" fill="none" stroke="currentColor" strokeWidth="1"/></g>
+                  <g transform="rotate(120 12 12)"><ellipse cx="12" cy="12" rx="9" ry="3" fill="none" stroke="currentColor" strokeWidth="1"/></g>
+                  <g transform="rotate(0 12 12)"><ellipse cx="12" cy="12" rx="9" ry="3" fill="none" stroke="currentColor" strokeWidth="1"/></g>
+                </svg>
+                <span className="text-sm font-medium text-slate-300 group-hover/item:text-white transition-colors">React</span>
               </div>
-              <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-xl p-3 hover:bg-white/20 transition-colors">
-                <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">N</span>
-                </div>
-                <span className="text-sm font-semibold">Next.js</span>
+
+              {/* Next.js */}
+              <div className="flex flex-col items-center justify-center gap-3 bg-white/5 backdrop-blur-sm rounded-xl p-4 hover:bg-white/10 transition-all duration-300 hover:-translate-y-1 border border-white/5 hover:border-white/10 group/item">
+                <svg className="w-10 h-10 text-white group-hover/item:scale-110 transition-transform duration-300" viewBox="0 0 24 24" fill="currentColor">
+                  <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zM9.32 9.235l6.616 8.498c.96-.925 1.753-2.032 2.32-3.275V8h-2v4.468L10.553 8H8v8h2V9.235z"/>
+                </svg>
+                <span className="text-sm font-medium text-slate-300 group-hover/item:text-white transition-colors">Next.js</span>
               </div>
-              <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-xl p-3 hover:bg-white/20 transition-colors">
-                <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">L</span>
-                </div>
-                <span className="text-sm font-semibold">Laravel</span>
+
+              {/* Laravel */}
+              <div className="flex flex-col items-center justify-center gap-3 bg-white/5 backdrop-blur-sm rounded-xl p-4 hover:bg-white/10 transition-all duration-300 hover:-translate-y-1 border border-white/5 hover:border-white/10 group/item">
+                <svg className="w-10 h-10 text-[#FF2D20] group-hover/item:scale-110 transition-transform duration-300" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l1.7 1.15 6.28 4.22-2.3 13.9-5.68 2.73-5.68-2.73-2.3-13.9 6.28-4.22L12 2zm0 2.6l-4.8 3.22 1.7 10.3 3.1 1.5 3.1-1.5 1.7-10.3-4.8-3.22z"/>
+                </svg>
+                <span className="text-sm font-medium text-slate-300 group-hover/item:text-white transition-colors">Laravel</span>
               </div>
-              <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-xl p-3 hover:bg-white/20 transition-colors">
-                <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">N</span>
-                </div>
-                <span className="text-sm font-semibold">Node.js</span>
+
+              {/* Node.js */}
+              <div className="flex flex-col items-center justify-center gap-3 bg-white/5 backdrop-blur-sm rounded-xl p-4 hover:bg-white/10 transition-all duration-300 hover:-translate-y-1 border border-white/5 hover:border-white/10 group/item">
+                <svg className="w-10 h-10 text-[#339933] group-hover/item:scale-110 transition-transform duration-300" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2L2.5 7.5v11L12 24l9.5-5.5v-11L12 2zm0 2.3l7.5 4.3v8.6l-7.5 4.3-7.5-4.3v-8.6l7.5-4.3z"/>
+                  <path d="M12 14l-4-2.3v-4.6l4-2.3 4 2.3v4.6l-4 2.3z"/>
+                </svg>
+                <span className="text-sm font-medium text-slate-300 group-hover/item:text-white transition-colors">Node.js</span>
               </div>
             </div>
           </div>

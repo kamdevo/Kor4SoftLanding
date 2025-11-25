@@ -57,7 +57,10 @@ export default function Testimonials() {
             }}
             transition={{ duration: 0.5, delay: index * 0.15 }}
           >
-            <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg border border-slate-200 hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+            <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg border border-slate-100 hover:shadow-2xl hover:border-slate-200 transition-all duration-300 h-full flex flex-col relative overflow-hidden group">
+              {/* Decoración superior */}
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-slate-400 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              
               {/* Rating stars */}
               <div className="flex gap-1 mb-4">
                 {[...Array(testimonial.rating)].map((_, i) => (
