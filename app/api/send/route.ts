@@ -46,84 +46,116 @@ export async function POST(request: Request) {
 
     const asuntoLabel = asuntoLabels[asunto] || asunto;
 
-    // HTML del email con estilo Kor4Soft
+    // HTML del email con estilo Kor4Soft Premium
     const htmlContent = `
       <!DOCTYPE html>
       <html>
         <head>
           <meta charset="utf-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Nuevo Contacto Kor4Soft</title>
         </head>
-        <body style="margin: 0; padding: 0; background-color: #f1f5f9; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
-          <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f1f5f9; padding: 32px 16px;">
+        <body style="margin: 0; padding: 0; background-color: #f8fafc; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased;">
+          <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f8fafc; padding: 40px 20px;">
             <tr>
               <td align="center">
-                <table width="100%" cellpadding="0" cellspacing="0" style="max-width: 600px; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-                  <!-- Header -->
+                <table width="100%" cellpadding="0" cellspacing="0" style="max-width: 600px; background-color: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01); border: 1px solid #e2e8f0;">
+                  
+                  <!-- Header con Gradiente -->
                   <tr>
-                    <td style="background: linear-gradient(135deg, #334155 0%, #1e293b 100%); padding: 40px 32px; text-align: center;">
-                      <h1 style="margin: 0; color: #ffffff; font-size: 24px; font-weight: 700;">Kor4Soft</h1>
-                      <p style="margin: 8px 0 0 0; color: #cbd5e1; font-size: 14px;">Nuevo mensaje de contacto</p>
+                    <td style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); padding: 48px 40px; text-align: center;">
+                      <h1 style="margin: 0; color: #ffffff; font-size: 28px; font-weight: 700; letter-spacing: -0.5px;">Kor4Soft</h1>
+                      <p style="margin: 12px 0 0 0; color: #94a3b8; font-size: 14px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase;">Notificación de Nuevo Lead</p>
                     </td>
                   </tr>
                   
-                  <!-- Content -->
+                  <!-- Cuerpo Principal -->
                   <tr>
-                    <td style="padding: 32px;">
-                      <h2 style="margin: 0 0 24px 0; color: #1e293b; font-size: 18px; font-weight: 600;">Detalles del mensaje</h2>
+                    <td style="padding: 40px;">
                       
-                      <!-- Info Box -->
-                      <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f8fafc; border-radius: 8px; padding: 24px; margin-bottom: 24px;">
+                      <!-- Saludo -->
+                      <p style="margin: 0 0 30px 0; color: #334155; font-size: 16px; line-height: 1.6;">
+                        Hola equipo, han recibido un nuevo mensaje a través del formulario de contacto web. Aquí están los detalles:
+                      </p>
+
+                      <!-- Tarjeta de Información -->
+                      <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f1f5f9; border-radius: 12px; margin-bottom: 32px; border: 1px solid #e2e8f0;">
+                        
+                        <!-- Nombre -->
                         <tr>
-                          <td style="padding: 24px;">
-                            <table width="100%" cellpadding="0" cellspacing="0">
-                              <tr>
-                                <td style="padding-bottom: 16px;">
-                                  <p style="margin: 0 0 4px 0; color: #64748b; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600;">Nombre</p>
-                                  <p style="margin: 0; color: #1e293b; font-size: 15px; font-weight: 500;">${nombre}</p>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td style="padding-bottom: 16px;">
-                                  <p style="margin: 0 0 4px 0; color: #64748b; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600;">Correo electrónico</p>
-                                  <p style="margin: 0; color: #1e293b; font-size: 15px; font-weight: 500;">${email}</p>
-                                </td>
-                              </tr>
-                              ${telefono ? `
-                              <tr>
-                                <td style="padding-bottom: 16px;">
-                                  <p style="margin: 0 0 4px 0; color: #64748b; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600;">Teléfono</p>
-                                  <p style="margin: 0; color: #1e293b; font-size: 15px; font-weight: 500;">${telefono}</p>
-                                </td>
-                              </tr>
-                              ` : ''}
-                              <tr>
-                                <td>
-                                  <p style="margin: 0 0 4px 0; color: #64748b; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600;">Asunto</p>
-                                  <p style="margin: 0; color: #1e293b; font-size: 15px; font-weight: 500;">${asuntoLabel}</p>
-                                </td>
-                              </tr>
-                            </table>
+                          <td style="padding: 24px 24px 16px 24px; border-bottom: 1px solid #e2e8f0;">
+                            <p style="margin: 0 0 6px 0; color: #64748b; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600;">👤 Cliente</p>
+                            <p style="margin: 0; color: #0f172a; font-size: 16px; font-weight: 600;">${nombre}</p>
+                          </td>
+                        </tr>
+
+                        <!-- Email -->
+                        <tr>
+                          <td style="padding: 16px 24px; border-bottom: 1px solid #e2e8f0;">
+                            <p style="margin: 0 0 6px 0; color: #64748b; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600;">✉️ Correo Electrónico</p>
+                            <p style="margin: 0; color: #0f172a; font-size: 16px; font-weight: 500;">
+                              <a href="mailto:${email}" style="color: #2563eb; text-decoration: none;">${email}</a>
+                            </p>
+                          </td>
+                        </tr>
+
+                        <!-- Teléfono (Condicional) -->
+                        ${telefono ? `
+                        <tr>
+                          <td style="padding: 16px 24px; border-bottom: 1px solid #e2e8f0;">
+                            <p style="margin: 0 0 6px 0; color: #64748b; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600;">📱 Teléfono</p>
+                            <p style="margin: 0; color: #0f172a; font-size: 16px; font-weight: 500;">
+                              <a href="tel:${telefono}" style="color: #334155; text-decoration: none;">${telefono}</a>
+                            </p>
+                          </td>
+                        </tr>
+                        ` : ''}
+
+                        <!-- Asunto -->
+                        <tr>
+                          <td style="padding: 16px 24px 24px 24px;">
+                            <p style="margin: 0 0 6px 0; color: #64748b; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600;">🔖 Asunto</p>
+                            <div style="display: inline-block; background-color: #e0f2fe; color: #0369a1; padding: 4px 12px; border-radius: 9999px; font-size: 13px; font-weight: 600;">
+                              ${asuntoLabel}
+                            </div>
                           </td>
                         </tr>
                       </table>
                       
-                      <!-- Divider -->
-                      <hr style="border: none; border-top: 1px solid #e2e8f0; margin: 24px 0;">
-                      
-                      <!-- Message -->
-                      <p style="margin: 0 0 12px 0; color: #64748b; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600;">Mensaje</p>
-                      <div style="background-color: #f8fafc; border-radius: 8px; padding: 24px;">
-                        <p style="margin: 0; color: #475569; font-size: 15px; line-height: 1.6; white-space: pre-wrap;">${mensaje}</p>
+                      <!-- Sección de Mensaje -->
+                      <div style="margin-top: 32px;">
+                        <div style="background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);">
+                          <div style="background-color: #f8fafc; padding: 12px 24px; border-bottom: 1px solid #e2e8f0;">
+                            <p style="margin: 0; color: #64748b; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700;">💬 Mensaje del Cliente</p>
+                          </div>
+                          <div style="padding: 24px;">
+                             <p style="margin: 0; color: #334155; font-size: 16px; line-height: 1.8; white-space: pre-wrap;">${mensaje}</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Botón de Acción -->
+                      <div style="text-align: center; margin-top: 40px;">
+                        <a href="mailto:${email}?subject=Re: ${asuntoLabel} - Kor4Soft&body=Hola ${nombre.split(' ')[0]},%0D%0A%0D%0AGracias por contactarnos..." style="background-color: #0f172a; color: #ffffff; padding: 14px 32px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 15px; display: inline-block; box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.2);">
+                          Responder a ${nombre.split(' ')[0]} &rarr;
+                        </a>
                       </div>
                     </td>
                   </tr>
                   
-                  <!-- Footer -->
+                  <!-- Footer Premium -->
                   <tr>
-                    <td style="background-color: #1e293b; padding: 24px 32px; text-align: center;">
-                      <p style="margin: 0 0 8px 0; color: #94a3b8; font-size: 12px;">Este mensaje fue enviado desde el formulario de contacto de tu sitio web.</p>
-                      <p style="margin: 0; color: #64748b; font-size: 12px;">© ${new Date().getFullYear()} Kor4Soft. Todos los derechos reservados.</p>
+                    <td style="background-color: #f8fafc; padding: 32px; text-align: center; border-top: 1px solid #e2e8f0;">
+                      <p style="margin: 0 0 16px 0; color: #64748b; font-size: 13px;">Este es un mensaje automatizado enviado desde <a href="https://kor4soft.com" style="color: #2563eb; text-decoration: none;">kor4soft.com</a></p>
+                      
+                      <!-- Redes Sociales Simples -->
+                      <div style="margin-bottom: 20px;">
+                        <a href="https://www.facebook.com/profile.php?viewas=100000686899395&id=61584353451934" style="color: #94a3b8; text-decoration: none; margin: 0 10px; font-weight: 500; font-size: 12px;">Facebook</a>
+                        <span style="color: #cbd5e1;">|</span>
+                        <a href="https://www.instagram.com/kor4soft/" style="color: #94a3b8; text-decoration: none; margin: 0 10px; font-weight: 500; font-size: 12px;">Instagram</a>
+                      </div>
+
+                      <p style="margin: 0; color: #94a3b8; font-size: 12px;">© ${new Date().getFullYear()} Kor4Soft S.A.S. Cali, Colombia.</p>
                     </td>
                   </tr>
                 </table>
