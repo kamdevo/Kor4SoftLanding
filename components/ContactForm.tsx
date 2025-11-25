@@ -1,12 +1,67 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 
 interface ContactFormProps {
   isOpen: boolean;
   onClose: () => void;
 }
+
+// Variantes de animación para el modal
+const overlayVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: { 
+    opacity: 1,
+    transition: { duration: 0.3, ease: "easeOut" }
+  },
+  exit: { 
+    opacity: 0,
+    transition: { duration: 0.2, ease: "easeIn", delay: 0.1 }
+  }
+};
+
+const modalVariants: Variants = {
+  hidden: { 
+    opacity: 0, 
+    scale: 0.8,
+    y: 40,
+    filter: "blur(10px)"
+  },
+  visible: { 
+    opacity: 1, 
+    scale: 1, 
+    y: 0,
+    filter: "blur(0px)",
+    transition: { 
+      type: "spring",
+      stiffness: 300,
+      damping: 24,
+      mass: 0.8,
+      staggerChildren: 0.07,
+      delayChildren: 0.1
+    }
+  },
+  exit: { 
+    opacity: 0, 
+    scale: 0.9,
+    y: 20,
+    filter: "blur(5px)",
+    transition: { 
+      duration: 0.2,
+      ease: [0.4, 0, 1, 1]
+    }
+  }
+};
+
+const contentVariants: Variants = {
+  hidden: { opacity: 0, y: 15 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { type: "spring", stiffness: 400, damping: 25 }
+  }
+};
 
 export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
   const [formData, setFormData] = useState({
@@ -78,25 +133,22 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
     <AnimatePresence>
       {isOpen && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-4 md:p-6 overflow-y-auto">
-          {/* Overlay con animación de fade */}
+          {/* Overlay con animación de fade suave */}
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm -z-10"
+            variants={overlayVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            className="fixed inset-0 bg-black/60 backdrop-blur-md -z-10"
             onClick={onClose}
           />
 
-          {/* Modal Container con animación de scale + slide */}
+          {/* Modal Container con animación spring suave */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            transition={{ 
-              duration: 0.3,
-              ease: [0.16, 1, 0.3, 1] // easeOutExpo profesional
-            }}
+            variants={modalVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
             className="relative bg-white rounded-xl sm:rounded-2xl shadow-2xl w-full max-w-[95vw] sm:max-w-[90vw] lg:max-w-5xl overflow-hidden my-auto"
           >
         
@@ -114,8 +166,8 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
         {/* Contenido compacto */}
         <div className="p-4 sm:p-5 lg:p-6">
           
-          {/* Header compacto */}
-          <div className="text-center mb-4 sm:mb-5">
+          {/* Header compacto con animación */}
+          <motion.div variants={contentVariants} className="text-center mb-4 sm:mb-5">
             <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-slate-800 mb-2">
               Contáctanos
             </h2>
@@ -123,10 +175,10 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
             <p className="text-xs sm:text-sm text-slate-600 max-w-xl mx-auto">
               ¿Tienes un proyecto en mente? Completa el formulario.
             </p>
-          </div>
+          </motion.div>
 
-          {/* Grid compacto */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-5">
+          {/* Grid compacto con animación */}
+          <motion.div variants={contentVariants} className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-5">
             
             {/* INFO DE CONTACTO - Compacta */}
             <div className="bg-gradient-to-br from-slate-700 to-slate-800 rounded-lg p-4 sm:p-5 text-white shadow-xl order-2 lg:order-1">
@@ -321,7 +373,7 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
                 )}
               </form>
             </div>
-          </div>
+          </motion.div>
         </div>
       </motion.div>
     </div>
