@@ -106,22 +106,6 @@ export default function FAQ() {
         ))}
       </div>
 
-      {/* CTA final */}
-      <div className="text-center mt-10 sm:mt-12">
-        <p className="text-slate-600 text-base mb-4">
-          ¿Tienes otra pregunta?
-        </p>
-        <button
-          onClick={() => {
-            if ((window as any).openContactModal) {
-              (window as any).openContactModal();
-            }
-          }}
-          className="inline-block px-6 sm:px-8 py-3 bg-slate-700 hover:bg-slate-800 text-white rounded-lg font-semibold text-sm sm:text-base transition-all duration-300 shadow-lg hover:shadow-xl"
-        >
-          Contáctanos
-        </button>
-      </div>
     </section>
   );
 }
