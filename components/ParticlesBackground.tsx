@@ -1,11 +1,11 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, memo } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 import type { ISourceOptions } from "@tsparticles/engine";
 
-export default function ParticlesBackground() {
+function ParticlesBackgroundComponent() {
   const [init, setInit] = useState(false);
 
   useEffect(() => {
@@ -101,3 +101,6 @@ export default function ParticlesBackground() {
     />
   );
 }
+
+// Memoizar para evitar re-renders innecesarios
+export default memo(ParticlesBackgroundComponent);
