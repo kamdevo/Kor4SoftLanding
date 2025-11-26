@@ -114,15 +114,15 @@ export default function Hero() {
           </div>
 
           {/* Tech Stack Floating Icons */}
-          <div className="relative w-full max-w-3xl mx-auto flex items-center justify-center gap-6 sm:gap-10">
+          <div className="relative w-full max-w-3xl mx-auto flex items-center justify-center gap-3 xs:gap-4 sm:gap-10 px-2 sm:px-0">
 
             {/* React */}
             <div className="relative flex flex-col items-center">
               <AnimatePresence>
                 {selectedTech === 'react' && (
-                  <motion.div variants={tooltipVariants} initial="hidden" animate="visible" exit="exit" className="absolute bottom-full mb-3 w-56 sm:w-64 z-50">
+                  <motion.div variants={tooltipVariants} initial="hidden" animate="visible" exit="exit" className="absolute bottom-full mb-3 w-52 sm:w-64 z-50 left-0 sm:left-1/2 sm:-translate-x-1/2">
                     <div className="bg-white rounded-xl shadow-xl border border-slate-200 p-3 relative">
-                      <div className="absolute left-1/2 -translate-x-1/2 -bottom-2 w-3 h-3 bg-white border-r border-b border-slate-200 rotate-45"></div>
+                      <div className="absolute left-6 sm:left-1/2 sm:-translate-x-1/2 -bottom-2 w-3 h-3 bg-white border-r border-b border-slate-200 rotate-45"></div>
                       <div className="flex items-center gap-2 mb-1.5">
                         <div className={`w-6 h-6 ${techData.react.color} rounded-md flex items-center justify-center`}><span className="text-white text-xs font-bold">R</span></div>
                         <h4 className="font-bold text-slate-900 text-sm">{techData.react.name}</h4>
@@ -143,9 +143,9 @@ export default function Hero() {
             <div className="relative flex flex-col items-center">
               <AnimatePresence>
                 {selectedTech === 'nextjs' && (
-                  <motion.div variants={tooltipVariants} initial="hidden" animate="visible" exit="exit" className="absolute bottom-full mb-3 w-56 sm:w-64 z-50">
+                  <motion.div variants={tooltipVariants} initial="hidden" animate="visible" exit="exit" className="absolute bottom-full mb-3 w-52 sm:w-64 z-50 -left-6 sm:left-1/2 sm:-translate-x-1/2">
                     <div className="bg-white rounded-xl shadow-xl border border-slate-200 p-3 relative">
-                      <div className="absolute left-1/2 -translate-x-1/2 -bottom-2 w-3 h-3 bg-white border-r border-b border-slate-200 rotate-45"></div>
+                      <div className="absolute left-12 sm:left-1/2 sm:-translate-x-1/2 -bottom-2 w-3 h-3 bg-white border-r border-b border-slate-200 rotate-45"></div>
                       <div className="flex items-center gap-2 mb-1.5">
                         <div className={`w-6 h-6 ${techData.nextjs.color} rounded-md flex items-center justify-center`}><span className="text-white text-xs font-bold">N</span></div>
                         <h4 className="font-bold text-slate-900 text-sm">{techData.nextjs.name}</h4>
@@ -176,9 +176,9 @@ export default function Hero() {
             <div className="relative flex flex-col items-center">
               <AnimatePresence>
                 {selectedTech === 'laravel' && (
-                  <motion.div variants={tooltipVariants} initial="hidden" animate="visible" exit="exit" className="absolute bottom-full mb-3 w-56 sm:w-64 z-50">
+                  <motion.div variants={tooltipVariants} initial="hidden" animate="visible" exit="exit" className="absolute bottom-full mb-3 w-52 sm:w-64 z-50 -right-6 sm:right-auto sm:left-1/2 sm:-translate-x-1/2">
                     <div className="bg-white rounded-xl shadow-xl border border-slate-200 p-3 relative">
-                      <div className="absolute left-1/2 -translate-x-1/2 -bottom-2 w-3 h-3 bg-white border-r border-b border-slate-200 rotate-45"></div>
+                      <div className="absolute right-12 sm:right-auto sm:left-1/2 sm:-translate-x-1/2 -bottom-2 w-3 h-3 bg-white border-r border-b border-slate-200 rotate-45"></div>
                       <div className="flex items-center gap-2 mb-1.5">
                         <div className={`w-6 h-6 ${techData.laravel.color} rounded-md flex items-center justify-center`}><span className="text-white text-xs font-bold">L</span></div>
                         <h4 className="font-bold text-slate-900 text-sm">{techData.laravel.name}</h4>
@@ -199,9 +199,9 @@ export default function Hero() {
             <div className="relative flex flex-col items-center">
               <AnimatePresence>
                 {selectedTech === 'nodejs' && (
-                  <motion.div variants={tooltipVariants} initial="hidden" animate="visible" exit="exit" className="absolute bottom-full mb-3 w-56 sm:w-64 z-50">
+                  <motion.div variants={tooltipVariants} initial="hidden" animate="visible" exit="exit" className="absolute bottom-full mb-3 w-52 sm:w-64 z-50 right-0 sm:right-auto sm:left-1/2 sm:-translate-x-1/2">
                     <div className="bg-white rounded-xl shadow-xl border border-slate-200 p-3 relative">
-                      <div className="absolute left-1/2 -translate-x-1/2 -bottom-2 w-3 h-3 bg-white border-r border-b border-slate-200 rotate-45"></div>
+                      <div className="absolute right-6 sm:right-auto sm:left-1/2 sm:-translate-x-1/2 -bottom-2 w-3 h-3 bg-white border-r border-b border-slate-200 rotate-45"></div>
                       <div className="flex items-center gap-2 mb-1.5">
                         <div className={`w-6 h-6 ${techData.nodejs.color} rounded-md flex items-center justify-center`}><span className="text-white text-xs font-bold">N</span></div>
                         <h4 className="font-bold text-slate-900 text-sm">{techData.nodejs.name}</h4>
