@@ -6,7 +6,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-slate-900 text-slate-300 relative overflow-hidden">
+    <footer className="bg-slate-900 text-slate-300 relative overflow-hidden z-0">
       {/* Background decorativo sutil sin círculos blancos invasivos */}
       <div className="absolute inset-0 pointer-events-none">
          <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-b from-slate-900/50 to-slate-900"></div>
