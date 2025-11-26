@@ -1,4 +1,5 @@
 import { InView } from "./InView";
+import Image from "next/image";
 
 export default function BentoGrid() {
   return (
@@ -217,38 +218,61 @@ export default function BentoGrid() {
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 relative z-10">
               {/* React */}
               <div className="flex flex-col items-center justify-center gap-3 bg-white/5 backdrop-blur-sm rounded-xl p-4 hover:bg-white/10 transition-all duration-300 hover:-translate-y-1 border border-white/5 hover:border-white/10 group/item">
-                <svg className="w-10 h-10 text-[#61DAFB] group-hover/item:scale-110 transition-transform duration-300" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z" opacity="0.2"/>
-                  <circle cx="12" cy="12" r="2" />
-                  <g transform="rotate(60 12 12)"><ellipse cx="12" cy="12" rx="9" ry="3" fill="none" stroke="currentColor" strokeWidth="1"/></g>
-                  <g transform="rotate(120 12 12)"><ellipse cx="12" cy="12" rx="9" ry="3" fill="none" stroke="currentColor" strokeWidth="1"/></g>
-                  <g transform="rotate(0 12 12)"><ellipse cx="12" cy="12" rx="9" ry="3" fill="none" stroke="currentColor" strokeWidth="1"/></g>
-                </svg>
+                <div className="w-10 h-10 relative group-hover/item:scale-110 transition-transform duration-300">
+                  <Image 
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png" 
+                    alt="React" 
+                    width={40} 
+                    height={40} 
+                    className="w-full h-full object-contain" 
+                    unoptimized 
+                  />
+                </div>
                 <span className="text-sm font-medium text-slate-300 group-hover/item:text-white transition-colors">React</span>
               </div>
 
               {/* Next.js */}
               <div className="flex flex-col items-center justify-center gap-3 bg-white/5 backdrop-blur-sm rounded-xl p-4 hover:bg-white/10 transition-all duration-300 hover:-translate-y-1 border border-white/5 hover:border-white/10 group/item">
-                <svg className="w-10 h-10 text-white group-hover/item:scale-110 transition-transform duration-300" viewBox="0 0 24 24" fill="currentColor">
-                  <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zM9.32 9.235l6.616 8.498c.96-.925 1.753-2.032 2.32-3.275V8h-2v4.468L10.553 8H8v8h2V9.235z"/>
-                </svg>
+                <div className="w-10 h-10 relative group-hover/item:scale-110 transition-transform duration-300">
+                  <Image 
+                    src="https://www.svgrepo.com/show/354113/nextjs-icon.svg" 
+                    alt="Next.js" 
+                    width={40} 
+                    height={40} 
+                    className="w-full h-full object-contain" 
+                    unoptimized 
+                  />
+                </div>
                 <span className="text-sm font-medium text-slate-300 group-hover/item:text-white transition-colors">Next.js</span>
               </div>
 
               {/* Laravel */}
               <div className="flex flex-col items-center justify-center gap-3 bg-white/5 backdrop-blur-sm rounded-xl p-4 hover:bg-white/10 transition-all duration-300 hover:-translate-y-1 border border-white/5 hover:border-white/10 group/item">
-                <svg className="w-10 h-10 text-[#FF2D20] group-hover/item:scale-110 transition-transform duration-300" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2l1.7 1.15 6.28 4.22-2.3 13.9-5.68 2.73-5.68-2.73-2.3-13.9 6.28-4.22L12 2zm0 2.6l-4.8 3.22 1.7 10.3 3.1 1.5 3.1-1.5 1.7-10.3-4.8-3.22z"/>
-                </svg>
+                <div className="w-10 h-10 relative group-hover/item:scale-110 transition-transform duration-300">
+                  <Image 
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Laravel.svg/1969px-Laravel.svg.png" 
+                    alt="Laravel" 
+                    width={40} 
+                    height={40} 
+                    className="w-full h-full object-contain" 
+                    unoptimized 
+                  />
+                </div>
                 <span className="text-sm font-medium text-slate-300 group-hover/item:text-white transition-colors">Laravel</span>
               </div>
 
               {/* Node.js */}
               <div className="flex flex-col items-center justify-center gap-3 bg-white/5 backdrop-blur-sm rounded-xl p-4 hover:bg-white/10 transition-all duration-300 hover:-translate-y-1 border border-white/5 hover:border-white/10 group/item">
-                <svg className="w-10 h-10 text-[#339933] group-hover/item:scale-110 transition-transform duration-300" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2L2.5 7.5v11L12 24l9.5-5.5v-11L12 2zm0 2.3l7.5 4.3v8.6l-7.5 4.3-7.5-4.3v-8.6l7.5-4.3z"/>
-                  <path d="M12 14l-4-2.3v-4.6l4-2.3 4 2.3v4.6l-4 2.3z"/>
-                </svg>
+                <div className="w-10 h-10 relative group-hover/item:scale-110 transition-transform duration-300">
+                  <Image 
+                    src="https://www.svgrepo.com/show/354119/nodejs-icon.svg" 
+                    alt="Node.js" 
+                    width={40} 
+                    height={40} 
+                    className="w-full h-full object-contain" 
+                    unoptimized 
+                  />
+                </div>
                 <span className="text-sm font-medium text-slate-300 group-hover/item:text-white transition-colors">Node.js</span>
               </div>
             </div>
