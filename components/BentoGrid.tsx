@@ -1,4 +1,5 @@
 import { InView } from "./InView";
+import Image from "next/image";
 
 export default function BentoGrid() {
   return (
@@ -31,7 +32,7 @@ export default function BentoGrid() {
             <div className="relative z-10">
               {/* Icono y badge */}
               <div className="flex items-start justify-between mb-6">
-                <div className="w-16 h-16 bg-slate-900 rounded-2xl flex items-center justify-center shadow-lg shadow-slate-900/20 group-hover:scale-110 transition-transform duration-500">
+                <div className="w-16 h-16 bg-slate-900 rounded-2xl flex items-center justify-center shadow-lg shadow-slate-900/20">
                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                   </svg>
@@ -72,11 +73,13 @@ export default function BentoGrid() {
                 </div>
               </div>
 
-              {/* Precio */}
+              {/* Badge inferior */}
               <div className="pt-6 border-t border-slate-100">
-                <div className="flex items-end gap-2">
-                  <span className="text-sm text-slate-500 uppercase tracking-wide font-semibold">Desde</span>
-                  <span className="text-2xl font-bold text-slate-900">Consultar</span>
+                <div className="flex items-center gap-2 text-slate-600">
+                  <svg className="w-5 h-5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
+                  </svg>
+                  <span className="text-sm font-semibold">Solución completa</span>
                 </div>
               </div>
             </div>
@@ -97,7 +100,7 @@ export default function BentoGrid() {
             <div className="relative z-10">
               {/* Icono */}
               <div className="flex items-start justify-between mb-6">
-                <div className="w-16 h-16 bg-slate-700 rounded-2xl flex items-center justify-center shadow-lg shadow-slate-700/20 group-hover:scale-110 transition-transform duration-500">
+                <div className="w-16 h-16 bg-slate-700 rounded-2xl flex items-center justify-center shadow-lg shadow-slate-700/20">
                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
                   </svg>
@@ -205,34 +208,72 @@ export default function BentoGrid() {
           transition={{ duration: 0.4, delay: 0.5 }}
           className="sm:col-span-2"
         >
-          <div className="h-full bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-8 shadow-lg text-white hover:shadow-2xl transition-shadow duration-300 relative overflow-hidden group">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-16 -mt-16 blur-3xl group-hover:bg-white/10 transition-colors"></div>
+          <div className="h-full bg-slate-900 rounded-2xl p-8 shadow-lg text-white hover:shadow-xl transition-shadow duration-300 relative overflow-hidden group">
+            {/* Fondo decorativo */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600/10 rounded-full -mr-16 -mt-16 blur-3xl group-hover:bg-blue-600/20 transition-colors"></div>
+            <div className="absolute bottom-0 left-0 w-40 h-40 bg-purple-600/10 rounded-full -ml-10 -mb-10 blur-2xl group-hover:bg-purple-600/20 transition-colors"></div>
 
             <h3 className="text-2xl font-bold mb-6 relative z-10">Tecnologías que dominamos</h3>
-            <div className="grid grid-cols-2 gap-4 relative z-10">
-              <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-xl p-3 hover:bg-white/20 transition-colors">
-                <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">R</span>
+            
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 relative z-10">
+              {/* React */}
+              <div className="flex flex-col items-center justify-center gap-3 bg-white/5 backdrop-blur-sm rounded-xl p-4 hover:bg-white/10 transition-all duration-300 hover:-translate-y-1 border border-white/5 hover:border-white/10 group/item">
+                <div className="w-10 h-10 relative group-hover/item:scale-110 transition-transform duration-300">
+                  <Image 
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png" 
+                    alt="React" 
+                    width={40} 
+                    height={40} 
+                    className="w-full h-full object-contain" 
+                    unoptimized 
+                  />
                 </div>
-                <span className="text-sm font-semibold">React</span>
+                <span className="text-sm font-medium text-slate-300 group-hover/item:text-white transition-colors">React</span>
               </div>
-              <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-xl p-3 hover:bg-white/20 transition-colors">
-                <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">N</span>
+
+              {/* Next.js */}
+              <div className="flex flex-col items-center justify-center gap-3 bg-white/5 backdrop-blur-sm rounded-xl p-4 hover:bg-white/10 transition-all duration-300 hover:-translate-y-1 border border-white/5 hover:border-white/10 group/item">
+                <div className="w-10 h-10 relative group-hover/item:scale-110 transition-transform duration-300">
+                  <Image 
+                    src="https://www.svgrepo.com/show/354113/nextjs-icon.svg" 
+                    alt="Next.js" 
+                    width={40} 
+                    height={40} 
+                    className="w-full h-full object-contain" 
+                    unoptimized 
+                  />
                 </div>
-                <span className="text-sm font-semibold">Next.js</span>
+                <span className="text-sm font-medium text-slate-300 group-hover/item:text-white transition-colors">Next.js</span>
               </div>
-              <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-xl p-3 hover:bg-white/20 transition-colors">
-                <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">L</span>
+
+              {/* Laravel */}
+              <div className="flex flex-col items-center justify-center gap-3 bg-white/5 backdrop-blur-sm rounded-xl p-4 hover:bg-white/10 transition-all duration-300 hover:-translate-y-1 border border-white/5 hover:border-white/10 group/item">
+                <div className="w-10 h-10 relative group-hover/item:scale-110 transition-transform duration-300">
+                  <Image 
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Laravel.svg/1969px-Laravel.svg.png" 
+                    alt="Laravel" 
+                    width={40} 
+                    height={40} 
+                    className="w-full h-full object-contain" 
+                    unoptimized 
+                  />
                 </div>
-                <span className="text-sm font-semibold">Laravel</span>
+                <span className="text-sm font-medium text-slate-300 group-hover/item:text-white transition-colors">Laravel</span>
               </div>
-              <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-xl p-3 hover:bg-white/20 transition-colors">
-                <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">N</span>
+
+              {/* Node.js */}
+              <div className="flex flex-col items-center justify-center gap-3 bg-white/5 backdrop-blur-sm rounded-xl p-4 hover:bg-white/10 transition-all duration-300 hover:-translate-y-1 border border-white/5 hover:border-white/10 group/item">
+                <div className="w-10 h-10 relative group-hover/item:scale-110 transition-transform duration-300">
+                  <Image 
+                    src="https://www.svgrepo.com/show/354119/nodejs-icon.svg" 
+                    alt="Node.js" 
+                    width={40} 
+                    height={40} 
+                    className="w-full h-full object-contain" 
+                    unoptimized 
+                  />
                 </div>
-                <span className="text-sm font-semibold">Node.js</span>
+                <span className="text-sm font-medium text-slate-300 group-hover/item:text-white transition-colors">Node.js</span>
               </div>
             </div>
           </div>

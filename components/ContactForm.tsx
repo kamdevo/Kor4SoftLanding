@@ -1,12 +1,64 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 
 interface ContactFormProps {
   isOpen: boolean;
   onClose: () => void;
 }
+
+// Variantes de animación para el modal
+const overlayVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: { 
+    opacity: 1,
+    transition: { duration: 0.3, ease: "easeOut" }
+  },
+  exit: { 
+    opacity: 0,
+    transition: { duration: 0.2, ease: "easeIn", delay: 0.1 }
+  }
+};
+
+const modalVariants: Variants = {
+  hidden: { 
+    opacity: 0, 
+    scale: 0.95,
+    y: 30
+  },
+  visible: { 
+    opacity: 1, 
+    scale: 1, 
+    y: 0,
+    transition: { 
+      type: "spring",
+      stiffness: 300,
+      damping: 25,
+      mass: 0.8,
+      staggerChildren: 0.07,
+      delayChildren: 0.1
+    }
+  },
+  exit: { 
+    opacity: 0, 
+    scale: 0.97,
+    y: 15,
+    transition: { 
+      duration: 0.2,
+      ease: [0.4, 0, 1, 1]
+    }
+  }
+};
+
+const contentVariants: Variants = {
+  hidden: { opacity: 0, y: 15 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { type: "spring", stiffness: 400, damping: 25 }
+  }
+};
 
 export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
   const [formData, setFormData] = useState({
@@ -18,6 +70,15 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
   });
 
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [isSelectOpen, setIsSelectOpen] = useState(false);
+
+  const subjectOptions = [
+    { value: "desarrollo-web", label: "Desarrollo Web" },
+    { value: "app-movil", label: "Aplicación Móvil" },
+    { value: "automatizacion", label: "Automatización" },
+    { value: "consultoria", label: "Consultoría" },
+    { value: "otro", label: "Otro" }
+  ];
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -31,9 +92,21 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
     e.preventDefault();
     setStatus("sending");
 
-    // TODO: Aquí se implementará el envío por Gmail
-    setTimeout(() => {
-      console.log("Datos del formulario:", formData);
+    try {
+      const response = await fetch('/api/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Error al enviar el mensaje');
+      }
+
       setStatus("success");
       
       setTimeout(() => {
@@ -46,8 +119,15 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
         });
         setStatus("idle");
         onClose();
-      }, 2000);
-    }, 1500);
+      }, 2500);
+    } catch (error) {
+      console.error('Error:', error);
+      setStatus("error");
+      
+      setTimeout(() => {
+        setStatus("idle");
+      }, 3000);
+    }
   };
 
   // Cerrar modal con tecla Escape
@@ -77,26 +157,24 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-4 md:p-6 overflow-y-auto">
-          {/* Overlay con animación de fade */}
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-4 md:p-6 overflow-y-auto" style={{ minHeight: '-webkit-fill-available' }}>
+          {/* Overlay con animación de fade suave */}
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm -z-10"
+            variants={overlayVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            className="fixed inset-0 bg-black/60 -z-10"
+            style={{ backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)' }}
             onClick={onClose}
           />
 
-          {/* Modal Container con animación de scale + slide */}
+          {/* Modal Container con animación spring suave */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            transition={{ 
-              duration: 0.3,
-              ease: [0.16, 1, 0.3, 1] // easeOutExpo profesional
-            }}
+            variants={modalVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
             className="relative bg-white rounded-xl sm:rounded-2xl shadow-2xl w-full max-w-[95vw] sm:max-w-[90vw] lg:max-w-5xl overflow-hidden my-auto"
           >
         
@@ -114,8 +192,8 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
         {/* Contenido compacto */}
         <div className="p-4 sm:p-5 lg:p-6">
           
-          {/* Header compacto */}
-          <div className="text-center mb-4 sm:mb-5">
+          {/* Header compacto con animación */}
+          <motion.div variants={contentVariants} className="text-center mb-4 sm:mb-5">
             <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-slate-800 mb-2">
               Contáctanos
             </h2>
@@ -123,10 +201,10 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
             <p className="text-xs sm:text-sm text-slate-600 max-w-xl mx-auto">
               ¿Tienes un proyecto en mente? Completa el formulario.
             </p>
-          </div>
+          </motion.div>
 
-          {/* Grid compacto */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-5">
+          {/* Grid compacto con animación */}
+          <motion.div variants={contentVariants} className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-5">
             
             {/* INFO DE CONTACTO - Compacta */}
             <div className="bg-gradient-to-br from-slate-700 to-slate-800 rounded-lg p-4 sm:p-5 text-white shadow-xl order-2 lg:order-1">
@@ -264,21 +342,62 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
                   <label htmlFor="asunto" className="block text-xs font-semibold text-slate-700 mb-1">
                     Asunto *
                   </label>
-                  <select
-                    id="asunto"
-                    name="asunto"
-                    value={formData.asunto}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-3 py-2 text-sm text-slate-900 border border-slate-300 rounded-md focus:ring-2 focus:ring-slate-700 focus:border-transparent outline-none transition-all bg-white"
-                  >
-                    <option value="">Selecciona un asunto</option>
-                    <option value="desarrollo-web">Desarrollo Web</option>
-                    <option value="app-movil">Aplicación Móvil</option>
-                    <option value="automatizacion">Automatización</option>
-                    <option value="consultoria">Consultoría</option>
-                    <option value="otro">Otro</option>
-                  </select>
+                  <div className="relative">
+                    <button
+                      type="button"
+                      onClick={() => setIsSelectOpen(!isSelectOpen)}
+                      className={`w-full px-3 py-2 text-sm text-left border rounded-md focus:ring-2 focus:ring-slate-700 focus:border-transparent outline-none transition-all flex items-center justify-between bg-white ${
+                        formData.asunto ? "text-slate-900" : "text-slate-400"
+                      } ${isSelectOpen ? "border-slate-700 ring-2 ring-slate-700" : "border-slate-300"}`}
+                    >
+                      <span>
+                        {formData.asunto 
+                          ? subjectOptions.find(opt => opt.value === formData.asunto)?.label 
+                          : "Selecciona un asunto"}
+                      </span>
+                      <svg 
+                        className={`w-4 h-4 text-slate-500 transition-transform duration-200 ${isSelectOpen ? "rotate-180" : ""}`} 
+                        fill="none" 
+                        stroke="currentColor" 
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </button>
+
+                    <AnimatePresence>
+                      {isSelectOpen && (
+                        <>
+                          <div className="fixed inset-0 z-10" onClick={() => setIsSelectOpen(false)} />
+                          <motion.ul
+                            initial={{ opacity: 0, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -10 }}
+                            transition={{ duration: 0.2 }}
+                            className="absolute z-20 w-full mt-1 bg-white border border-slate-200 rounded-md shadow-xl max-h-60 overflow-auto py-1"
+                          >
+                            {subjectOptions.map((option) => (
+                              <li
+                                key={option.value}
+                                onClick={() => {
+                                  setFormData(prev => ({ ...prev, asunto: option.value }));
+                                  setIsSelectOpen(false);
+                                }}
+                                className="px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-slate-900 cursor-pointer transition-colors flex items-center justify-between"
+                              >
+                                {option.label}
+                                {formData.asunto === option.value && (
+                                  <svg className="w-4 h-4 text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                  </svg>
+                                )}
+                              </li>
+                            ))}
+                          </motion.ul>
+                        </>
+                      )}
+                    </AnimatePresence>
+                  </div>
                 </div>
 
                 {/* Mensaje */}
@@ -321,7 +440,7 @@ export default function ContactForm({ isOpen, onClose }: ContactFormProps) {
                 )}
               </form>
             </div>
-          </div>
+          </motion.div>
         </div>
       </motion.div>
     </div>

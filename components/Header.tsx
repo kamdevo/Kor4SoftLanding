@@ -36,7 +36,7 @@ export default function Header() {
     <>
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/50">
         <div className="container mx-auto px-4 py-4 sm:py-5 lg:py-6 max-w-7xl">
-          <div className="flex items-center justify-between gap-4 sm:gap-6 lg:gap-8">
+          <div className="flex items-center justify-center md:justify-between gap-4 sm:gap-6 lg:gap-8">
           {/* Logo */}
           <div className="flex items-center flex-shrink-0">
             <Image

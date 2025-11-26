@@ -6,8 +6,13 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-slate-900 text-slate-300">
-      <div className="container mx-auto px-4 py-12 sm:py-16 max-w-7xl">
+    <footer className="bg-slate-900 text-slate-300 relative overflow-hidden z-0">
+      {/* Background decorativo sutil sin círculos blancos invasivos */}
+      <div className="absolute inset-0 pointer-events-none">
+         <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-b from-slate-900/50 to-slate-900"></div>
+      </div>
+
+      <div className="container mx-auto px-4 py-12 sm:py-16 max-w-7xl relative z-10">
         {/* Grid principal - Sistema de cajas responsive */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-8">
           
